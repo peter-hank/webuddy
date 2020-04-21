@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 source 'https://rubygems.org'
 
-ruby '2.4.1'
+ruby '2.7.1'
 
 gem 'active_model_serializers', '~> 0.10'
 gem 'bcrypt', '~> 3.1'
 gem 'bootstrap-sass', '~> 3.3'
 gem 'cancancan', '~> 2.0'
 gem 'carrierwave'
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails', '~> 5.0'
 gem 'devise'
 gem 'dotenv-rails'
 gem 'enumerize'
@@ -17,8 +17,8 @@ gem 'font-awesome-rails', '~> 4.7'
 gem 'jquery-rails'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
-gem 'rails', '~> 5.2'
-gem 'rails_admin', '~> 1.3'
+gem 'rails', '~> 6.0'
+gem 'rails_admin', '~> 2.0'
 gem 'redis', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'
@@ -28,7 +28,7 @@ gem 'uglifier', '>= 1.3'
 group :development, :test do
   gem 'awesome_print'
   gem 'bullet'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'pry-byebug'
   gem 'pry-doc'
   gem 'pry-rails'
@@ -37,7 +37,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'annotate'
+  gem 'annotate', '~> 3.1'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'brakeman', require: false

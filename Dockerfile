@@ -1,12 +1,13 @@
-FROM ruby:2.4.1-alpine
+FROM ruby:2.7.1
 
-RUN apk update && apk add build-base nodejs postgresql-dev tzdata git sqlite \
-    sqlite-dev && gem install mailcatcher --no-ri --no-rdoc
+RUN apt update && apt install -y nodejs tzdata sqlite build-essential patch \ 
+    ruby-dev zlib1g-dev liblzma-dev && \
+    gem install mailcatcher --no-document
 
 RUN mkdir /app
 WORKDIR /app
 
 COPY . .
-RUN bundle install
+RUN bundle update --bundler && bundle install
 
-CMD (sidekiq --concurrency 2 &) && puma -C config/puma.rb
+CMD (sidekiq --concurrency 2 &) && (while true; do sleep 1; done;)

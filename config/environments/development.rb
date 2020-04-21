@@ -64,4 +64,6 @@ Rails.application.configure do
 
   config.action_cable.url = ENV['ACTION_CABLE_URL'] || 'ws://localhost:28080/cable'
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
+
+  config.hosts << 'localhost.webuddy'
 end

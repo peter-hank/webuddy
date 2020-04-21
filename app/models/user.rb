@@ -26,7 +26,6 @@ class User < ApplicationRecord
 
   def nickname_in_room(room)
     return 'OP' if room.owner_id == id
-    return ENV['VICTORIOUSBORN_NICKNAME'] if ENV['VICTORIOUSBORN_NICKNAME'].present? && username == 'victoriousBorn'
 
     @room_user_nicknames ||= RoomUserNickname.includes(:user).where(room: room)
     nickname_in_room = @room_user_nicknames.find { |room_user_nickname| room_user_nickname.user == self }
