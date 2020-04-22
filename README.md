@@ -1,8 +1,8 @@
-# Threads
+# Webuddy
 
 ## Description
 
-Threads is a simple, anonymous discussion tool.
+Webuddy is a simple, anonymous discussion tool.
 
 ## Dev environment
 

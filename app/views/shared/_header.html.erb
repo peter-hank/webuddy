@@ -1,33 +1,26 @@
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <%= link_to root_path, class: 'navbar-brand' do %>
-        <%= image_tag asset_path('logo.svg'), alt: 'logo' %>
-        <span class="brand-text">Threads</span>
-      <% end %>
-    </div>
+<div class="header-container">
+  <div class="header-hamburger">
+    <a class="mburger" href="#my-menu">
+      <b></b>
+      <b></b>
+      <b></b>
+    </a>
+  </div>
 
-    <div class="collapse navbar-collapse" id="main-navbar">
-      <ul class="nav navbar-nav navbar-right">
+  <div class="header-logo">
+    <%= image_tag asset_path('logo.png'), alt: 'logo' %>
+  </div>
+
+  <nav id="my-menu">
+    <ul>
       <% unless current_or_guest_user.username.include?('guest') %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-            Hi <%= current_or_guest_user.username %>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to 'Logout', destroy_user_session_path() %></li>
-          </ul>
+          Hi <%= current_or_guest_user.username %>
+          <%= link_to 'Logout', destroy_user_session_path() %>
         </li>
       <% else %>
         <li><%= link_to 'Login', user_session_path %></li>
       <% end %>
-      </ul>
-    </div>
-  </div>
-</nav>
+    </ul>
+  </nav>
+</div>

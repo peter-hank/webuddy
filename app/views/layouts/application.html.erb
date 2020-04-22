@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Threads</title>
+    <title>webuddy</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all' %>
@@ -12,24 +12,32 @@
   </head>
 
   <body>
-    <%= render 'shared/header' %>
+    <div id="my-page">
+      <div id="my-header">
+        <%= render 'shared/header' %>
+      </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <% flash.each do |key, value| %>
-            <div class="<%= flash_class(key) %>">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <%= value %>
+      <div id="my-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <% flash.each do |key, value| %>
+                <div class="<%= flash_class(key) %>">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <%= value %>
+                </div>
+              <% end %>
             </div>
-          <% end %>
+          </div>
         </div>
       </div>
+
+      <%= yield %>
+
+      <div id="my-footer">
+        <%= render 'shared/footer' %>
+      </div>
     </div>
-
-    <%= yield %>
-
-    <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'application' %>
   </body>
