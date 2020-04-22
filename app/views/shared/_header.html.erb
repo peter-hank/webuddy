@@ -8,19 +8,20 @@
   </div>
 
   <div class="header-logo">
-    <%= image_tag asset_path('logo.png'), alt: 'logo' %>
+    <a href="/"><%= image_tag asset_path('logo.png'), alt: 'logo' %></a>
   </div>
 
   <nav id="my-menu">
     <ul>
       <% unless current_or_guest_user.username.include?('guest') %>
         <li class="dropdown">
-          Hi <%= current_or_guest_user.username %>
           <%= link_to 'Logout', destroy_user_session_path() %>
         </li>
       <% else %>
         <li><%= link_to 'Login', user_session_path %></li>
       <% end %>
+      <li><%= link_to 'FAQ', '' %></li>
+      <li><%= link_to 'About Us', '' %></li>
     </ul>
   </nav>
 </div>

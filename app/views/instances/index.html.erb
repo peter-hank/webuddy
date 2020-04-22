@@ -1,6 +1,15 @@
 <section class="instance">
   <div class="container">
     <div class="row">
+      <div class="text-center">
+        <h1>Chat <strong>Really</strong> Anonymously</h1>
+        <h2>Find Your Buddy</h2>
+      </div>
+
+      <div class="instance-home-banner-1">
+        <%= image_tag asset_path('home_banner_1.jpg'), alt: 'logo' %>
+      </div>
+
       <div class="col-sm-12">
         <%= render 'instances/instances', instances: @instances %>
       </div>
