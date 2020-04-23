@@ -1,5 +1,5 @@
 #my-footer {
-  width: 100%;
+  padding: 0 5%;
   background-image: url(/assets/triangles.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,32 +12,48 @@
     padding: 10px 0;
     margin-top: 30px;
 
+    @media (max-width: $breakpoint-lg) {
+      > .container {
+        flex-direction: column;
+      }
+    }
+
     .footer-bkc-logo {
-      max-width: 200px;
+      width: 200px;
       padding: 20px;
       background: #ffffff;
       border-radius: 10px;
-      margin-top: 10px;
     }
 
     a {
       color: #000000;
     }
 
-    li {
-      margin-top: 10px;
-    }
-
-    h4 {
+    h3 {
       padding: 20px;
       color: #000000;
       background: #ffffff;
       border-radius: 10px;
       vertical-align: top;
+      display: inline-block;
     }
 
-    .col-sm-4 {
+    .footer-column {
+      flex: 1;
+      height: 200px;
       display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 10px;
+
+      li {
+        margin-top: 10px;
+      }
+
+      > .container {
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 }

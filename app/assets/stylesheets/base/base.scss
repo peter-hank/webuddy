@@ -2,6 +2,19 @@
 
 body {
   font-family: 'Roboto Slab', serif;
+  margin: 0;
+}
+
+ul {
+  padding-left: 3rem;
+
+  li {
+    list-style-type: disc;
+  }
+}
+
+.container {
+  display: flex;
 }
 
 textarea {
@@ -25,6 +38,10 @@ textarea {
   .select2 {
     margin: 5px 0;
   }
+}
+
+.text-center {
+  text-align: center;
 }
 
 // @media (min-width: 768px) {
