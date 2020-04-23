@@ -15,9 +15,17 @@
   }
 }
 
-.mm-spn.mm-spn--navbar:after, 
+.mm-spn.mm-spn--navbar:after {
+  color: #000000;
+}
+
+.mm-spn.mm-spn--navbar:after,
 .mm-spn li:before {
   opacity: 1;
   z-index: 2;
   font-size: 2.5rem;
+}
+
+.mm-spn.mm-spn--light {
+  color: var(--main-color);
 }

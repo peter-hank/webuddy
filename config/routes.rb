@@ -44,6 +44,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :pages do
+    collection do
+      get :about_us
+      get :reach_us
+      get :our_rules
+    end
+  end
+
   root to: 'instances#index'
 
   mount ActionCable.server => '/cable'
