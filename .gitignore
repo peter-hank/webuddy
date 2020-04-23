@@ -29,3 +29,7 @@ coverage
 /config/secrets.yml
 
 .env
+
+/config/master.key
+
+/public/assets
