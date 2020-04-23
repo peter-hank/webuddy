@@ -34,7 +34,7 @@ class RoomsController < ApplicationController
     @room = Room.new(room_params.merge(owner_id: current_or_guest_user.id))
     if @room.save
       RoomUser.create_or_update!(@room.id, current_or_guest_user.id, nil)
-      redirect_to instance_url(@instance, access_token: params[:access_token].present? ? params[:access_token]:nil), notice: 'Thread has been created successfully'
+      redirect_to instance_url(@instance, access_token: params[:access_token].present? ? params[:access_token]:nil), notice: 'Room has been created successfully'
     else
       flash.now[:alert] = @room.errors.full_messages.join(', ')
       render :new
@@ -49,7 +49,7 @@ class RoomsController < ApplicationController
     authorize! :update, @room
 
     if @room.update_attributes(room_params)
-      redirect_to rooms_url, notice: 'Thread has been updated successfully'
+      redirect_to rooms_url, notice: 'Room has been updated successfully'
     else
       render :edit
     end
@@ -62,7 +62,7 @@ class RoomsController < ApplicationController
 
     @room.destroy
 
-    redirect_to instance, notice: 'Thread has been deleted successfully'
+    redirect_to instance, notice: 'Room has been deleted successfully'
   end
 
   def simple
@@ -77,7 +77,7 @@ class RoomsController < ApplicationController
     authorize! :update, @room
 
     if @room.update_attributes(locked: true)
-      redirect_to request.referer, notice: 'Thread has been locked'
+      redirect_to request.referer, notice: 'Room has been locked'
     else
       redirect_to request.referer, notice: 'Something went wrong, try again'
     end
@@ -87,7 +87,7 @@ class RoomsController < ApplicationController
     authorize! :update, @room
 
     if @room.update_attributes(locked: false)
-      redirect_to request.referer, notice: 'Thread has been unlocked'
+      redirect_to request.referer, notice: 'Room has been unlocked'
     else
       redirect_to request.referer, notice: 'Something went wrong, try again'
     end
@@ -98,7 +98,7 @@ class RoomsController < ApplicationController
 
     if @room.locked
       redirect_to request.referer,
-                  notice: 'Can\'t set a delayed lock on a locked thread'
+                  notice: 'Can\'t set a delayed lock on a locked room'
       return
     end
 
@@ -119,7 +119,7 @@ class RoomsController < ApplicationController
 
     DelayedRoomLockWorker.perform_at(lock_date, @room.id)
 
-    redirect_to request.referer, notice: 'Thread will be locked on ' + lock_date.to_formatted_s(:long_ordinal)
+    redirect_to request.referer, notice: 'Room will be locked on ' + lock_date.to_formatted_s(:long_ordinal)
   end
 
   def cancel_delayed_lock
@@ -149,7 +149,7 @@ class RoomsController < ApplicationController
       }
     )
 
-    redirect_to request.referer, notice: @user.nickname_in_room(@room) + ' has been muted in this thread'
+    redirect_to request.referer, notice: @user.nickname_in_room(@room) + ' has been muted in this room'
   end
 
   def unmute_user
@@ -165,7 +165,7 @@ class RoomsController < ApplicationController
       }
     )
 
-    redirect_to request.referer, notice: @user.nickname_in_room(@room) + ' has been unmuted in this thread'
+    redirect_to request.referer, notice: @user.nickname_in_room(@room) + ' has been unmuted in this room'
   end
 
   def messages

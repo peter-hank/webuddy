@@ -7,13 +7,13 @@
       <li>
         <% unless message.user.muted_in_room?(room) %>
           <%= link_to mute_user_room_path(room, user_id: message.user), method: :post do %>
-            Mute <strong><%= message.user.nickname_in_room(room) %></strong> in this thread
+            Mute <strong><%= message.user.nickname_in_room(room) %></strong> in this room
           <% end %>
         <% end %>
 
         <% if message.user.muted_in_room?(room) %>
           <%= link_to unmute_user_room_path(room, user_id: message.user), method: :post do %>
-            Unmute <strong><%= message.user.nickname_in_room(room) %></strong> in this thread
+            Unmute <strong><%= message.user.nickname_in_room(room) %></strong> in this room
           <% end %>
         <% end %>
       </li>

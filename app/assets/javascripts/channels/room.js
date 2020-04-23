@@ -52,7 +52,7 @@
   function muteMutedUser (data) {
     if (data.muted_user_id === parseInt(userId)) {
       $messageForm.prop('disabled', true);
-      $messageForm.val('You\'ve been muted in this thread and can\'t post any new messages');
+      $messageForm.val('You\'ve been muted in this room and can\'t post any new messages');
     }
   }
 

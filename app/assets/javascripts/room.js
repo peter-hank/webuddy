@@ -46,7 +46,7 @@
           .addClass('fa-compress');
         expander.attr(
           'title',
-          'Click to show the threads list'
+          'Click to show the rooms list'
         );
         headerTitle.text(activeTitle)
           .attr('title', activeTitle);
