@@ -2,6 +2,7 @@ $breakpoint-lg: 992px;
 
 :root {
   --main-color: #009C8A;
+  --snd-color: #5529B6;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -148,7 +149,7 @@ a:visited {
 }
 
 a:hover {
-  color: #0056b3;
+  color: var(--snd-color);
   text-decoration: underline;
 }
 

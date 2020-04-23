@@ -22,4 +22,14 @@
       border-top-right-radius: 4px;
     }
   }
+
+  .hr-box:last-child {
+    display: none;
+  }
+}
+
+.room-instance-name {
+  background: var(--main-color);
+  padding: 5px 10px;
+  color: #ffffff;
 }
