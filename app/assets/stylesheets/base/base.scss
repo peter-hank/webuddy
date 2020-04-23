@@ -1,8 +1,5 @@
 @charset "UTF-8";
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 body {
   font-family: 'Roboto Slab', serif;
 }
@@ -28,11 +25,6 @@ textarea {
   .select2 {
     margin: 5px 0;
   }
-}
-
-.funny-red-font {
-  font-family: 'Rock Salt', cursive;
-  color: #F10000
 }
 
 // @media (min-width: 768px) {

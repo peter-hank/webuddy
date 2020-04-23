@@ -5,7 +5,6 @@ ruby '2.7.1'
 
 gem 'active_model_serializers', '~> 0.10'
 gem 'bcrypt', '~> 3.1'
-gem 'bootstrap-sass', '~> 3.3'
 gem 'cancancan', '~> 2.0'
 gem 'carrierwave'
 gem 'coffee-rails', '~> 5.0'

@@ -5,3 +5,17 @@
 .mm-spn li:after {
   margin-left: 0;
 }
+
+.mm-spn ul {
+  background: url(/assets/pixels.png);
+
+  li {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+
+.mm-spn.mm-spn--navbar:after, 
+.mm-spn li:before {
+  opacity: 1;
+  z-index: 2;
+}

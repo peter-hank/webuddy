@@ -77,8 +77,6 @@ GEM
       activerecord (>= 3.2, < 7.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.0)
-    autoprefixer-rails (9.5.0)
-      execjs
     awesome_print (1.8.0)
     bcrypt (3.1.13)
     better_errors (2.5.1)
@@ -88,9 +86,6 @@ GEM
     bindex (0.5.0)
     binding_of_caller (0.8.0)
       debug_inspector (>= 0.0.1)
-    bootstrap-sass (3.4.1)
-      autoprefixer-rails (>= 5.2.1)
-      sassc (>= 2.0.0)
     brakeman (4.5.0)
     builder (3.2.4)
     bullet (6.1.0)
@@ -390,7 +385,6 @@ DEPENDENCIES
   bcrypt (~> 3.1)
   better_errors
   binding_of_caller
-  bootstrap-sass (~> 3.3)
   brakeman
   bullet
   cancancan (~> 2.0)
