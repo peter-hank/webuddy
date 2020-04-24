@@ -38,7 +38,14 @@
       goDown = true;
     }
 
-    $messageArea.append(data.message);
+    let element = $(data.message);
+    let elementData = $(data.message).data();
+
+    if (parseInt(elementData.userId) != parseInt($('#user-id').val())) {
+      element.find('.message-user').removeClass('message-user-own');
+    }
+
+    $messageArea.append(element);
 
     if (goDown === true) {
       scrollToBottom($messageArea);

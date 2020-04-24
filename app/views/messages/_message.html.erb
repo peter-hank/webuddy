@@ -1,10 +1,11 @@
 <div class="message-item message-item-extra<% if message.user.muted_in_room?(room) %> message-item-muted<% end %>" data-message-id="<%= message.id %>" data-user-id="<%= message.user.id %>">
-  <span class="dropdown">
-    <strong class="message-user dropdown-toggle" data-toggle="dropdown">
-      <%= message.user.nickname_in_room(room) %>:
+  <span>
+    <strong class="message-user <% if message.user == current_or_guest_user %> message-user-own<% end %>">
+      <%= message.user.nickname_in_room(room) %>
     </strong>
-    <ul class="dropdown-menu">
-      <li>
+
+    <% if message.user != current_or_guest_user %>
+      <span class="message-actions">
         <% unless message.user.muted_in_room?(room) %>
           <%= link_to mute_user_room_path(room, user_id: message.user), method: :post do %>
             Mute <strong><%= message.user.nickname_in_room(room) %></strong> in this room
@@ -16,8 +17,8 @@
             Unmute <strong><%= message.user.nickname_in_room(room) %></strong> in this room
           <% end %>
         <% end %>
-      </li>
-    </ul>
+      </span>
+    <% end %>
   </span>
   <span class="message-content"><%= message.content %></span>
 </div>

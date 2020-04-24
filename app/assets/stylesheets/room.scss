@@ -79,6 +79,22 @@
     flex: 1;
   }
 
+  .message-user {
+    display: inline-block;
+    background: var(--main-color);
+    padding: 2px 4px;
+    color: #ffffff;
+    margin-top: 5px;
+
+    &.message-user-own {
+      background-color: var(--snd-color);
+    }
+  }
+
+  .message-actions {
+    display: none;
+  }
+
   textarea {
     width: 100%;
     resize: none;
