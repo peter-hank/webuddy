@@ -3,32 +3,29 @@ body,
 #my-page {
   height: 100vh;
   max-height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-#my-header {
-  position: static;
-  top: auto;
-  left: auto;
+  overflow: hidden;
 }
 
 body,
 #my-page,
 #my-content,
 .room-chat {
-  flex: 1;
+  flex: 1 1 auto;
   display: flex;
   flex-direction: column;
 }
 
 #my-content {
-  margin-top: -87px;
   margin-bottom: 0;
-  padding-top: 87px;
 }
 
-#my-content,
+#my-content {
+  height: calc(100vh - 120px);
+}
+
 .room-chat,
 .room-chat-messages {
   max-height: 100%;
@@ -40,7 +37,7 @@ body,
 }
 
 .message-area {
-  flex: 1;
+  flex-grow: 1;
 }
 
 .message-form {
