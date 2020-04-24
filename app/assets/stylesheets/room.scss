@@ -1,4 +1,6 @@
 .room-chat {
+  margin: 0 -5%;
+
   .room-chat-header {
     position: relative;
 
@@ -12,12 +14,14 @@
   }
 
   .room-chat-header-title {
-    max-width: 800px;
     margin: 0 auto;
-    overflow-wrap: break-word;
-    max-height: 200px;
-    overflow: hidden;
     padding: 0 20px;
+    display: inline-block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    color: #ffffff;
 
     &.room-chat-header-title-long {
       position: relative;
@@ -38,12 +42,9 @@
   }
 
   .message-area {
-    height: 420px;
     overflow-y: scroll;
     background: #f3f3f3;
-    border-radius: 5px;
     padding: 10px;
-    margin-bottom: 20px;
 
     .dropdown-menu {
       visibility: hidden;
@@ -72,9 +73,14 @@
         }
       }
     }
+  }
 
-    @media (min-width: 768px) {
-        flex-grow: 1;
-    }
+  .room-chat-messages {
+    flex: 1;
+  }
+
+  textarea {
+    width: 100%;
+    resize: none;
   }
 }

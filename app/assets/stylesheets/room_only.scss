@@ -1,0 +1,50 @@
+html,
+body,
+#my-page {
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#my-header {
+  position: static;
+  top: auto;
+  left: auto;
+}
+
+body,
+#my-page,
+#my-content,
+.room-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#my-content {
+  margin-top: -87px;
+  margin-bottom: 0;
+  padding-top: 87px;
+}
+
+#my-content,
+.room-chat,
+.room-chat-messages {
+  max-height: 100%;
+}
+
+.room-chat-messages {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-area {
+  flex: 1;
+}
+
+.message-form {
+  form {
+    margin-bottom: 0;
+  }
+}

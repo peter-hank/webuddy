@@ -1,37 +1,26 @@
 <section class="room-chat">
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-6 room-chat-rooms">
-        <%= render 'rooms/rooms', rooms: @rooms %>
-      </div>
-      <div class="col-sm-6 room-chat-messages">
-        <div class="text-center section-header room-chat-header">
-          <a class="room-chat-expander" title="Click to expand the message area">
-            <%= fa_icon "expand" %>
-          </a>
-          <h2 class="room-chat-header-title">Active room</h2>
-          <h5 class="room-chat-header-subtitle">Only the replies to the one room you selected</h5>
-        </div>
+  <div class="room-chat-messages">
+    <div class="text-center section-header room-chat-header">
+      <h2 class="room-chat-header-title"><span class="room-instance-name"><%= @room.title %></span></h2>
+    </div>
 
-        <div class="message-area<%= ' message-area-editor' if can?(:update, @room) %>">
-          <% @messages.each do |message| %>
-            <%= render 'messages/message', message: message, room: @room %>
-          <% end %>
-        </div>
+    <div class="message-area<%= ' message-area-editor' if can?(:update, @room) %>">
+      <% @messages.each do |message| %>
+        <%= render 'messages/message', message: message, room: @room %>
+      <% end %>
+    </div>
 
-        <div class="message-form">
-          <%= form_for @message, url: room_messages_path(@room), remote: true, authencity_token: true do |f| %>
-            <div class="form-group">
-              <%= f.text_area :content,
-                class: 'form-control',
-                placeholder: 'Message...',
-                disabled: (@room.locked || current_or_guest_user.muted_in_room?(@room)) ? true : false,
-                value: current_or_guest_user.muted_in_room?(@room) ? 'You\'ve been muted in this room and can\'t post any new messages' : ''
-              %>
-            </div>
-          <% end %>
+    <div class="message-form">
+      <%= form_for @message, url: room_messages_path(@room), remote: true, authencity_token: true do |f| %>
+        <div class="form-group">
+          <%= f.text_area :content,
+            class: 'form-control',
+            placeholder: 'Message...',
+            disabled: (@room.locked || current_or_guest_user.muted_in_room?(@room)) ? true : false,
+            value: current_or_guest_user.muted_in_room?(@room) ? 'You\'ve been muted in this room and can\'t post any new messages' : ''
+          %>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 
@@ -40,3 +29,5 @@
   <%= hidden_field_tag :access_token, params[:access_token], id: 'access-token' %>
   <%= hidden_field_tag :first_message_id, @messages&.first&.id, id: 'first-message-id' %>
 </section>
+
+<%= stylesheet_link_tag "room_only", :media => "all" %>

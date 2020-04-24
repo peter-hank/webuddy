@@ -36,9 +36,11 @@
         <%= yield %>
       </div>
 
-      <div id="my-footer">
-        <%= render 'shared/footer' %>
-      </div>
+      <% unless (params[:controller] == 'rooms' && params[:action] == 'show') %>
+        <div id="my-footer">
+          <%= render 'shared/footer' %>
+        </div>
+      <% end %>
     </div>
 
     <%= javascript_include_tag 'application' %>
